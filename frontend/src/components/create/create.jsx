@@ -25,6 +25,7 @@ function Create(props) {
             setTitle("")
             setAuthor("")
             setGenre("")
+            props.history.push("/")
         });
     }
 
