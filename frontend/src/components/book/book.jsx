@@ -145,7 +145,7 @@ class Book extends React.Component {
                 fav = <div className="pointer favText"  onClick={this.removeFavorite(this.props.book.favorites[0].id)}>Remove from favorites</div>
             }
 
-            let addNoteEle = <div className="shadow flexRow marginBottom20">
+            let addNoteEle = <div className="shadow flexRow marginBottom20 flexCenter">
                 <form className="userForm" onSubmit={this.addNote}>
                     <label htmlFor="note">
                         <input type="text" id="note" placeholder="Quite nicely done" value={this.state.note} onChange={this.onChangeHandle("note")} required />
@@ -177,7 +177,7 @@ class Book extends React.Component {
                 })
             }
 
-            notes = <div className="flexColReverse">
+            notes = <div className="flexColReverse width100 flexCenter">
                 {notes}
             </div>
 
