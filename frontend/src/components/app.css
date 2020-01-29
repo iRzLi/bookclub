@@ -1,0 +1,215 @@
+.flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.flexCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexCenter {
+    justify-content: center;
+    align-items: center;
+}
+
+.height100 {
+    height: 100%;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.userForm {
+    width: 300px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.shadow {
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);;
+}
+.userForm > label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.userForm input {
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(100% - 25px);
+    font-size: .8em;
+}
+
+.userForm div {
+    padding-bottom: 10px;
+}
+.userForm input:focus, .userForm input:active {
+    outline:none;
+}
+
+.submitButton {
+    background-color: var(--main-color);
+    color: #ffffff;
+    width: 100% !important;
+    cursor: pointer;
+}
+
+.link {
+    padding: 10px;
+    font-size: .8em;
+}
+
+.link > span {
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+.link > span:hover {
+    text-decoration: underline;
+}
+
+
+.navbarContainer {
+    background-color: var(--main-color);
+    color: #ffffff;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    padding: 10px;
+}
+.options {
+    display: flex;
+    flex-direction: row;
+}
+
+.options li {
+    padding: 10px 10px;
+    border-left: 1px solid #ffffff;
+}
+
+.options li:hover {
+    cursor: pointer;
+    background-color: var(--accent-color);
+}
+
+.bookListingContainer {
+    padding: 20px;
+    margin-bottom: 20px;
+    min-width: 300px;
+    max-width: 300px;
+    position: relative;
+}
+
+.flexBetween {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.bookListing {
+    width: 70%;
+    word-break: break-all;
+}
+
+.modalBackground {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+.modalChild {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.editButton{
+    background-color: var(--accent-color);
+    color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.deleteButton {
+    background-color: #d11a2a;
+    color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.bookOptions span {
+    margin-bottom: 10px;
+}
+
+.bookOptions span:last-child {
+    margin-bottom: 0px;
+}
+
+.cancelButton {
+    background-color: #d11a2a;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(100% - 25px);
+    font-size: .8em;
+}
+
+.header {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2em;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+}
+
+.favText {
+    margin-bottom: 10px;
+}
+
+.noteListing {
+    width: 100%;
+    word-break: break-all;
+    position: relative;
+}
+
+.marginBottom20 {
+    margin-bottom: 20px;
+}
+
+.deleteNote {
+    color: #d11a2a;
+    padding: 10px;
+    /* position: absolute;
+    right: -60px; */
+}
+
+.flexColReverse {
+    display: flex;
+    flex-direction: column-reverse;
+}
