@@ -1,7 +1,7 @@
 # origin-coding-challenge
 
 
-## Database Setup
+## To run this app
 
 database username and password are postgres defaults
 
