@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../navbar/navbar_container';
 import { createFavorite, deleteFavorite} from '../../utils/fav_util';
-import { createNote } from '../../utils/note_util';
+import { createNote, deleteNote } from '../../utils/note_util';
 
 class Book extends React.Component {
     constructor(props) {
@@ -24,6 +24,7 @@ class Book extends React.Component {
         this.addFavorite = this.addFavorite.bind(this);
         this.removeFavorite = this.removeFavorite.bind(this);
         this.addNote = this.addNote.bind(this);
+        this.deleteMyNote = this.deleteMyNote.bind(this);
     }
 
     openModal(e) {
@@ -112,6 +113,19 @@ class Book extends React.Component {
         })
     }
 
+    deleteMyNote(noteId) {
+        return e => {
+            e.preventDefault();
+            const data = {
+                id: noteId
+            }
+            deleteNote(data).then(() => {
+                const bookId = parseInt(this.props.match.params.bookId);
+                this.props.getBook(bookId);
+            })
+        }
+    }
+
     componentDidMount() {
         const bookId = parseInt(this.props.match.params.bookId);
         this.props.getBook(bookId);
@@ -149,7 +163,6 @@ class Book extends React.Component {
                 <form className="userForm" onSubmit={this.addNote}>
                     <label htmlFor="note">
                         <input type="text" id="note" placeholder="Quite nicely done" value={this.state.note} onChange={this.onChangeHandle("note")} required />
-
                     </label>
                     <label htmlFor="createNote">
                         <input id="createNote" className="submitButton width100" type="submit" value="Add Note" />
@@ -162,7 +175,7 @@ class Book extends React.Component {
                 notes = this.props.book.notes.map((note) => {
                     let deleteSpan = null;
                     if (note.user.id === this.props.loggedInUser.id){
-                        deleteSpan = <span className="pointer deleteNote">
+                        deleteSpan = <span className="pointer deleteNote" onClick={this.deleteMyNote(note.id)}>
                             Delete
                             </span>
                     }
