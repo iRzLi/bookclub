@@ -79,7 +79,40 @@ router.put('/', passport.authenticate('jwt', { session: false }), (req, res) => 
             }
             book.update({...input})
                 .then(updatedBook => {
-                    res.json(updatedBook)
+                    Book.findOne({
+                        where: { id: parseInt(updatedBook.id) },
+                        include: [
+                            {
+                                model: Favorite,
+                                required: false,
+                                where: {
+                                    userId: req.user.id,
+                                }
+                            },
+                            {
+                                model: Note,
+                                include: [
+                                    {
+                                        model: User,
+                                        attributes: ['id', 'displayName'],
+                                    }
+                                ]
+                            }
+                        ]
+                    })
+                        .then(book => {
+                            if (book) {
+                                res.json(book)
+                            } else {
+                                const errors = {};
+                                errors.msg = "Could not find book";
+                                return res.status(404).json(errors);
+                            }
+                        })
+                        .catch(errors => {
+                            errors.msg = "Could not find book";
+                            return res.status(400).json(errors);
+                        });
                 })
         } else {
             errors.msg = "Book does not exist";
